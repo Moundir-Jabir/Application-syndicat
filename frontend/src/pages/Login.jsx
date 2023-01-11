@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import toastr from 'toastr'
-import 'toastr/build/toastr.css'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import FormCard from '../components/forms/FormCard'
+import { login } from '../redux/feature/auth/authSlice'
 
 const Login = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [user, setUser] = useState({
     email: "", password: ""
@@ -11,7 +15,8 @@ const Login = () => {
 
   const submit = (e) => {
     e.preventDefault()
-    console.log(user)
+    dispatch(login(user))
+    navigate('/dashboard')
   }
   const { email, password } = user
   let inputs = [
