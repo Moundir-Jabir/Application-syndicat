@@ -4,9 +4,9 @@ const { addAppartement, updateAppartement, allAppartement } = require('../contro
 const { requireSignin, isAuth } = require('../middlewares/auth')
 const { appValidator, updateValidator, appartementById } = require('../middlewares/appartement')
 
-router.get('/', allAppartement)
-router.post('/', appValidator, addAppartement)
-router.patch('/:id', updateValidator, updateAppartement)
+router.get('/', [requireSignin, isAuth], allAppartement)
+router.post('/', [requireSignin, isAuth], appValidator, addAppartement)
+router.patch('/:id', [requireSignin, isAuth], updateValidator, updateAppartement)
 
 router.param('id', appartementById)
 

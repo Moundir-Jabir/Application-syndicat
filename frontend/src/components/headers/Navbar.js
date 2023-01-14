@@ -20,6 +20,7 @@ const Navbar = () => {
                     <div className="nav-wrapper">
                         <ul className="navbar-list left">
                             <li><NavLink to='/dashboard' className="waves-effect waves-block waves-light profile-button" data-target="profile-dropdown">Accueil</NavLink></li>
+                            <li><NavLink to='/dashboard/appartement' className="waves-effect waves-block waves-light profile-button" data-target="profile-dropdown">Mes Appartements</NavLink></li>
                         </ul>
                         <ul className="navbar-list right">
                             <li onClick={signout}><a className="waves-effect waves-block waves-light notification-button" data-target="notifications-dropdown"><i className="material-icons">exit_to_app</i></a></li>
