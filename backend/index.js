@@ -9,6 +9,7 @@ const expressValidator = require('express-validator')
 //Routers
 const authRouter = require('./routes/auth')
 const appartementRouter = require('./routes/appartement')
+const paymentRouter = require('./routes/payment')
 
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
@@ -23,6 +24,7 @@ app.use(expressValidator())
 
 app.use('/api/auth', authRouter)
 app.use('/api/appartement', appartementRouter)
+app.use('/api/payment', paymentRouter)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
