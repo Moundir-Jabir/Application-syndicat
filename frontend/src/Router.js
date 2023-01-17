@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Appartement from './pages/Appartement'
 import Accueil from './pages/Accueil'
 import PageNotFound from './pages/PageNotFound'
+import Payments from './pages/Payments'
 
 const Router = () => {
     return (
@@ -16,6 +17,7 @@ const Router = () => {
             <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
                 <Route path='' element={<Accueil />} />
                 <Route path='appartement' element={<Appartement />} />
+                <Route path='payment/:id' element={<Payments />} />
             </Route>
             <Route path='*' element={<PageNotFound />} />
         </Routes>

@@ -3,6 +3,7 @@ import moment from 'moment'
 import FormInput from '../forms/FormInput'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateAppart } from '../../redux/feature/appartement/appartSlice'
+import { Link } from 'react-router-dom'
 
 const AppartItem = ({ data: { _id, numero, proprietaire, dernier_payment, cotisation } }) => {
     const dispatch = useDispatch()
@@ -38,9 +39,9 @@ const AppartItem = ({ data: { _id, numero, proprietaire, dernier_payment, cotisa
             <td>{cotisation * moisInpaye} dh</td>
             <td>
                 <div className="invoice-action">
-                    <a href="#" className="invoice-action-view mr-4">
+                    <Link to={`/dashboard/payment/${_id}`} className="invoice-action-view mr-4">
                         <i className="material-icons">remove_red_eye</i>
-                    </a>
+                    </Link>
                     <a onClick={() => setShowModal("block")} href="#" className="invoice-action-edit">
                         <i className="material-icons">edit</i>
                     </a>
